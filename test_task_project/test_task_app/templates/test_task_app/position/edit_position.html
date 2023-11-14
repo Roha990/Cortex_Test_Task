@@ -1,0 +1,11 @@
+{% extends "../basic.html" %}
+{% block title %}Редактировать должность{% endblock %}
+{% block content %}
+<form method = "post">
+     {{form.as_p}}
+    {%csrf_token%}
+    <input type="submit" value='Отправить'>
+    {{success_post}}
+</form>
+
+{% endblock %}

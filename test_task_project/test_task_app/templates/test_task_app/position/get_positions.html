@@ -1,0 +1,22 @@
+{% extends "../basic.html" %}
+{% block title %}Должности{% endblock %}
+{% block content %}
+<a href="{%url 'add_position'%}">Добавить должность</a>
+    <table>
+          <colgroup>
+              <col span="1" style="background:Khaki">
+              <col span="1" style="background-color:green">
+              <col span="1" style="background-color:red">
+          </colgroup>
+        <tr>
+            <th>Название должности</th>
+        </tr>
+            {%for position in positions%}
+        <tr>
+            <td>{{position.name}}</td>
+            <td><a href="{% url 'update_position' position.pk %}">Редактировать</a></td>
+            <td><a href="{% url 'delete_position' position.pk %}">Удалить</a></td>
+        </tr>
+        {%endfor%}
+    </table>
+{% endblock content %}
